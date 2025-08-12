@@ -1,5 +1,4 @@
 //! Hello World from Zig!
-
 const std = @import("std");
 
 // The main funciton.

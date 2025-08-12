@@ -1,2 +1,0 @@
-# LearnZig
-Learning Zig
