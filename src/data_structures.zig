@@ -47,11 +47,24 @@ fn bubble_sort(arr: []const i64) !void {
     std.debug.print("Bubble sort: {any}\n", .{sort});
 }
 
+fn linear_search(arr: []const i64, target: i64) !void {
+    // Copy the array.
+    const search: [5]i64 = arr[0..5].*;
+    // Find the target.
+    for (0..search.len) |i| {
+        if (search[i]==target) {
+            std.debug.print("Target {d} was found at position {d}\n", .{target, i});
+        }
+    }
+}
+
 pub fn main() !void {
     const arr = [5]i64{64, 25, 12, 22, 11};
     // Select sort.
     try select_sort(&arr);
     // Bubble sort.
     try bubble_sort(&arr);
+    // Linear search
+    try linear_search(&arr, 22);
 }
 
