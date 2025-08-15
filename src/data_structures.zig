@@ -1,7 +1,7 @@
 // Learning data structure algorithms with Zig.
 const std = @import("std");
 
-fn select_search(arr: []const i64) !void {
+fn select_sort(arr: []const i64) !void {
     // Copy the array.
     var sort: [5]i64 = arr[0..5].*;
     // For the length of the array.
@@ -26,12 +26,32 @@ fn select_search(arr: []const i64) !void {
         }
     }
     // Print the algo.
-    std.debug.print("{any}\n", .{sort});
+    std.debug.print("Selection sort: {any}\n", .{sort});
+}
+
+fn bubble_sort(arr: []const i64) !void {
+    // Copy the array.
+    var sort: [5]i64 = arr[0..5].*;
+    // For the length of the array.
+    for (0..sort.len-1) |i| {
+        for (i+1..sort.len) |j| {
+            if (sort[j]<sort[i]) {
+                const elem_one:i64 = sort[i];
+                const elem_two:i64 = sort[j];
+                sort[i] = elem_two;
+                sort[j] = elem_one;
+            }
+        }
+    }
+    // Print the algo.
+    std.debug.print("Bubble sort: {any}\n", .{sort});
 }
 
 pub fn main() !void {
     const arr = [5]i64{64, 25, 12, 22, 11};
-    // Select search.
-    try select_search(&arr);
+    // Select sort.
+    try select_sort(&arr);
+    // Bubble sort.
+    try bubble_sort(&arr);
 }
 
