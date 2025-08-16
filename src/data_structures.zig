@@ -1,6 +1,17 @@
 // Learning data structure algorithms with Zig.
 const std = @import("std");
 
+
+pub fn main() !void {
+    const arr = [5]i64{64, 25, 12, 22, 11};
+    // Select sort.
+    try select_sort(&arr);
+    // Bubble sort.
+    try bubble_sort(&arr);
+    // Linear search
+    try linear_search(&arr, 22);
+}
+
 fn select_sort(arr: []const i64) !void {
     // Copy the array.
     var sort: [5]i64 = arr[0..5].*;
@@ -57,14 +68,3 @@ fn linear_search(arr: []const i64, target: i64) !void {
         }
     }
 }
-
-pub fn main() !void {
-    const arr = [5]i64{64, 25, 12, 22, 11};
-    // Select sort.
-    try select_sort(&arr);
-    // Bubble sort.
-    try bubble_sort(&arr);
-    // Linear search
-    try linear_search(&arr, 22);
-}
-
